@@ -455,7 +455,7 @@ h6::before {
   max-width: 1200px;
   margin: 0 auto 12px;
   display: flex;
-  color: rgb(255 255 255 / 80%) !important;
+  color: rgba(255, 255, 255, 0.8) !important;
   text-align: left;
   flex-wrap: wrap;
 }
@@ -535,7 +535,7 @@ h6::before {
 /* 链接悬浮颜色 */
 .ft-links li a:hover {
   text-decoration: none !important;
-  color: var(--theme-color) !important;
+  color: #42b0c1 !important;
 }
 
 .ft-item-2 .ft-img-group {
@@ -753,3 +753,4 @@ h6::before {
 .page:not(.page.home) .aside-content {
   display: none;
 }
+
