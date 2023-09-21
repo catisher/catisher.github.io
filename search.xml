@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>算法学习笔记</title>
+      <link href="/2023/09/20/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <url>/2023/09/20/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>  由于是初学数据结构与算法，所以会写一些自以为需要重要的东西。</p><h2 id="二路归并算法"><a href="#二路归并算法" class="headerlink" title="二路归并算法"></a>二路归并算法</h2><p>对于两个有序列表，当需要将它两个归并成一个有序列表时，我们可以采用以下策略：</p><ol><li>使用两个指向性变量，将它们分别指向两个有序列表的开头</li><li>将它们所指向的值作比较，根据列表顺序，将较小的（或较大的）放在新列表，若有一指向性变量为空，则下步骤直接放另一指向性变量所指的值</li><li>被放值的指向性变量指向下一个值</li><li>跳转到步骤2，直至两个列表穷尽停止，此时归并完全。<br>可能对于像我这样刚接触算法的人来说，第一思路想到是先将它们合在一起再对它们进行排序。但这样时间复杂度就要大得多，二路归并可以很好的解决这个问题</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 计算机 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>有关计算机的小技巧</title>
+      <link href="/2023/09/20/%E6%9C%89%E5%85%B3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7/"/>
+      <url>/2023/09/20/%E6%9C%89%E5%85%B3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7/</url>
+      
+        <content type="html"><![CDATA[<h2 id="如何编辑浏览器网页内容"><a href="#如何编辑浏览器网页内容" class="headerlink" title="如何编辑浏览器网页内容"></a>如何编辑浏览器网页内容</h2><ul><li>f12开发者模式（看键盘类型,有的需要fn+f12）</li><li>在控制台console输入document.body.contentEditable=”true”</li><li>关闭控制窗后即可编辑（其实也不用）</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 小技巧 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 小技巧 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>cmc学习记录</title>
       <link href="/2023/08/28/cmc%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
       <url>/2023/08/28/cmc%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
