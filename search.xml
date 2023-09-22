@@ -4,11 +4,30 @@
   
     
     <entry>
+      <title>个人日记</title>
+      <link href="/2023/09/22/%E4%B8%AA%E4%BA%BA%E6%97%A5%E8%AE%B0/"/>
+      <url>/2023/09/22/%E4%B8%AA%E4%BA%BA%E6%97%A5%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">  <script id="hbeData" type="hbeData" data-hmacdigest="216952a6a1549f9490e116c2884d497ae1b4059217732ebd3c5d23d4421dbd14">8857952509ef9895f61625fe2d594ef357a1a3250a28d09057dd7eb025e6500a</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-xray">      <input class="hbe hbe-input-field hbe-input-field-xray" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-xray" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-xray">您好, 这里需要密码.</span>      </label>      <svg class="hbe hbe-graphic hbe-graphic-xray" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">        <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>        <path d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0"></path>      </svg>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 日记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>算法学习笔记</title>
       <link href="/2023/09/20/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
       <url>/2023/09/20/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
       
-        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>  由于是初学数据结构与算法，所以会写一些自以为需要重要的东西。</p><h2 id="二路归并算法"><a href="#二路归并算法" class="headerlink" title="二路归并算法"></a>二路归并算法</h2><p>对于两个有序列表，当需要将它两个归并成一个有序列表时，我们可以采用以下策略：</p><ol><li>使用两个指向性变量，将它们分别指向两个有序列表的开头</li><li>将它们所指向的值作比较，根据列表顺序，将较小的（或较大的）放在新列表，若有一指向性变量为空，则下步骤直接放另一指向性变量所指的值</li><li>被放值的指向性变量指向下一个值</li><li>跳转到步骤2，直至两个列表穷尽停止，此时归并完全。<br>可能对于像我这样刚接触算法的人来说，第一思路想到是先将它们合在一起再对它们进行排序。但这样时间复杂度就要大得多，二路归并可以很好的解决这个问题</li></ol>]]></content>
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>  由于是初学数据结构与算法，所以会写一些自以为需要重要的东西。</p><h1 id="常用技巧"><a href="#常用技巧" class="headerlink" title="常用技巧"></a>常用技巧</h1><h2 id="二路归并算法"><a href="#二路归并算法" class="headerlink" title="二路归并算法"></a>二路归并算法</h2><p>对于两个有序列表，当需要将它两个归并成一个有序列表时，我们可以采用以下策略：</p><ol><li>使用两个指向性变量，将它们分别指向两个有序列表的开头</li><li>将它们所指向的值作比较，根据列表顺序，将较小的（或较大的）放在新列表，若有一指向性变量为空，则下步骤直接放另一指向性变量所指的值</li><li>被放值的指向性变量指向下一个值</li><li>跳转到步骤2，直至两个列表穷尽停止，此时归并完全。<br>可能对于像我这样刚接触算法的人来说，第一思路想到是先将它们合在一起再对它们进行排序。但这样时间复杂度就要大得多，二路归并可以很好的解决这个问题<h2 id="对奇偶数的分类"><a href="#对奇偶数的分类" class="headerlink" title="对奇偶数的分类"></a>对奇偶数的分类</h2>常使用模二的方式判断</li></ol><h1 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h1><ul><li>搜索：既按照特定规则（策略），在知识库中寻找可利用知识，构造解决问题的推理路线的过程。</li><li>搜索的目的通常有两种：<ol><li>找到从初始事实到问题最终答案的推理路线。</li><li>所找到路线时间和空间复杂度最小。</li></ol></li><li>状态空间法（将问题转变为能利用搜索方法解决的形式）：<ul><li>由于在实际中人们发现，许多问题实际上可以通过探索其存在的解空间来解决，于是将这种基于解空间的问题解决方法叫做状态空间方法。该方法应用范围可以很广泛，例如我们实际生活中的路线规划问题，象棋怎么下的问题都可以应用该思想解决。</li><li>状态空间Q可用三种类型的集合表示：初始状态集合S，操作符集合F，目标状态集合G。状态空间Q可记为三元组（S，F，G）</li><li>其主要思想即是将每种结果、操作枚举，将问题转变为计算机能够处理的形式，通过有限的操作，一定的算法，由已知结果探索到目的结果（即搜索）。<h2 id="图搜索策略"><a href="#图搜索策略" class="headerlink" title="图搜索策略"></a>图搜索策略</h2></li></ul></li><li>数据结构：open表，closed表。（用来描述状态的转变过程）<ol><li>open表：存放刚生成节点，作为待考察对象,”有进有出”动态数据结构,节点进入OPEN表的顺序由搜索策略决定</li><li>closed表：存放将要扩展或已经扩展的节点，记录求解信息，“有进无出”动态数据结构，当前节点进入CLOSED表的最后。</li></ol></li><li>基本策略：<ol><li>问题初始状态作为当前状态，选择算符进行操作，生成子状态，检查目标状态是否出现。</li><li>若出现，则搜索成功，找到问题解；</li><li>否则，从已生成状态中再选一个状态作为当前状态。</li><li>重复上述过程，直到目标状态出现或不再有可供操作状态及算符为止。<h3 id="盲目搜索"><a href="#盲目搜索" class="headerlink" title="盲目搜索"></a>盲目搜索</h3>即无需安排open表的搜索叫做无信息搜索、非启发式搜索或者盲目搜索，适用于求解简单问题。包括：</li></ol><ul><li>宽度优先搜索</li><li>深度优先搜索</li><li>等代价搜索</li></ul></li></ul><ol><li>宽度优先搜索<ul><li>基本思想<br>从起始节点S开始，按生成规则生成第一层节点，沿宽度横向扫描该层全部节点，检查该层节点中是否包含目标节点Sg。若没有，则将该层所有节点逐一扩展，得到第二层节点并逐一检查。</li><li>特点<br>向下逐层搜索，n层节点未搜索完之前不进入n+1层搜索。</li></ul></li><li>深度优先搜索<ul><li>基本思想<br>从初始节点S开始，按生成规则生成下一级子节点，检查是否出现目标节点Sg。若未出现，则按“最晚生成的子节点优先扩展”原则，再用生成规则生成下一级子节点。</li><li>特点<br>沿着最晚生成子节点分枝，逐级“纵向”深入搜索</li></ul></li></ol>]]></content>
       
       
       <categories>
@@ -79,7 +98,7 @@
     
     
     <entry>
-      <title>个人博客，启动！</title>
+      <title>博客，启动！</title>
       <link href="/2023/08/06/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/"/>
       <url>/2023/08/06/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
       
@@ -108,7 +127,7 @@
       <link href="/2023/08/05/hello-world/"/>
       <url>/2023/08/05/hello-world/</url>
       
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h1 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h1><h2 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><h2 id="修改npm源，这里是淘宝镜像："><a href="#修改npm源，这里是淘宝镜像：" class="headerlink" title="修改npm源，这里是淘宝镜像："></a>修改npm源，这里是淘宝镜像：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h2 id="创建文章页面"><a href="#创建文章页面" class="headerlink" title="创建文章页面"></a>创建文章页面</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><h2 id="修改npm源，这里是淘宝镜像："><a href="#修改npm源，这里是淘宝镜像：" class="headerlink" title="修改npm源，这里是淘宝镜像："></a>修改npm源，这里是淘宝镜像：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure><h2 id="生成新页面"><a href="#生成新页面" class="headerlink" title="生成新页面"></a>生成新页面</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new page name</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
