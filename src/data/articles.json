@@ -1,0 +1,32 @@
+[
+  {
+    "id": "vue3-composition-api",
+    "title": "Vue 3 组合式API详解",
+    "content": "# Vue 3 组合式API详解\n\nVue 3 引入了组合式API，这是一个全新的API设计，让我们能够更好地组织组件逻辑，提高代码复用性。\n\n## 为什么需要组合式API？\n\n在Vue 2中，我们使用选项式API（Options API）来组织组件代码。这种方式在组件变得复杂时，相关的逻辑会分散在不同的选项中，使得代码难以理解和维护。\n\n组合式API通过将相关的逻辑组织在一起，解决了这个问题。\n\n## setup函数\n\n`setup`函数是组合式API的入口点：\n\n```javascript\nimport { ref, onMounted } from 'vue'\n\nexport default {\n  setup() {\n    const count = ref(0)\n    \n    function increment() {\n      count.value++\n    }\n    \n    onMounted(() => {\n      console.log('组件已挂载')\n    })\n    \n    return {\n      count,\n      increment\n    }\n  }\n}\n```\n\n## 响应式引用\n\n`ref`和`reactive`是创建响应式数据的两种方式：\n\n- `ref`用于创建响应式的基本类型值\n- `reactive`用于创建响应式的对象\n\n## 生命周期钩子\n\n组合式API提供了与选项式API对应的生命周期钩子函数，只是名称前多了一个`on`前缀：\n\n- `onMounted`\n- `onUpdated`\n- `onUnmounted`\n- 等等\n\n## 总结\n\n组合式API为Vue开发提供了更灵活、更强大的方式来组织和复用代码。它特别适合处理复杂的组件逻辑，让我们的代码更加清晰和可维护。",
+    "excerpt": "Vue 3 组合式API详解 Vue 3 引入了组合式API，这是一个全新的API设计，让我们能够更好地组织组件逻辑，提高代码复用性。 为什么需要组合式API？ 在Vue 2中，我们使用选项式API（Options API）来组织组件代码。这种方式在组件变得复杂时，相关的逻辑会分散在不同的选项中，使...",
+    "category": "前端",
+    "tags": [
+      "Vue3",
+      "组合式API",
+      "JavaScript"
+    ],
+    "date": "2024-01-15",
+    "author": "张三",
+    "cover": ""
+  },
+  {
+    "id": "pinia-best-practices",
+    "title": "Pinia状态管理最佳实践",
+    "content": "# Pinia状态管理最佳实践\n\nPinia是Vue官方推荐的状态管理库，它提供了更好的类型支持和更简洁的API。\n\n## Pinia vs Vuex\n\n与Vuex相比，Pinia具有以下优势：\n\n- 更简洁的API，无需 mutations\n- 更好的TypeScript支持\n- 模块化设计，无需嵌套模块\n- 更灵活的组合\n\n## 基本用法\n\n创建一个store：\n\n```javascript\nimport { defineStore } from 'pinia'\n\nexport const useCounterStore = defineStore('counter', {\n  state: () => ({\n    count: 0\n  }),\n  getters: {\n    doubleCount: (state) => state.count * 2\n  },\n  actions: {\n    increment() {\n      this.count++\n    }\n  }\n})\n```\n\n在组件中使用：\n\n```javascript\nimport { useCounterStore } from '@/stores/counter'\n\nexport default {\n  setup() {\n    const counterStore = useCounterStore()\n    \n    return {\n      counterStore\n    }\n  }\n}\n```\n\n## 最佳实践\n\n1. **模块化设计**：按功能划分不同的store\n2. **使用getters**：派生状态逻辑放在getters中\n3. **异步操作**：异步逻辑放在actions中\n4. **类型定义**：为store状态定义TypeScript接口\n\n## 总结\n\nPinia是Vue 3生态系统中推荐的状态管理解决方案，它提供了现代化的API和良好的开发体验。通过遵循最佳实践，我们可以构建出更加可维护的状态管理代码。",
+    "excerpt": "Pinia状态管理最佳实践 Pinia是Vue官方推荐的状态管理库，它提供了更好的类型支持和更简洁的API。 Pinia vs Vuex 与Vuex相比，Pinia具有以下优势： - 更简洁的API，无需 mutations - 更好的TypeScript支持 - 模块化设计，无需嵌套模块 - 更灵...",
+    "category": "前端",
+    "tags": [
+      "Pinia",
+      "状态管理",
+      "Vue"
+    ],
+    "date": "2024-01-10",
+    "author": "李四",
+    "cover": ""
+  }
+]
