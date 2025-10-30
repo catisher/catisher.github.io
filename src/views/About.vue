@@ -11,39 +11,30 @@
             <span>博主</span>
           </div>
         </div>
-        <h2>技术博主</h2>
-        <p>专注于前端开发，热爱分享技术心得</p>
+        <h2>{{ blogConfig.author.name }}</h2>
+        <p>{{ blogConfig.author.description }}</p>
       </div>
       
       <div class="bio">
         <h3>个人简介</h3>
-        <p>你好！我是一名资深前端开发者，拥有多年的开发经验。主要技术栈包括Vue.js、React、TypeScript等。</p>
-        <p>我创建这个博客的目的是为了分享我的技术学习心得、项目经验，以及对前端技术的一些见解。</p>
-        <p>如果你有任何问题或建议，欢迎通过以下方式联系我。</p>
+        <p>{{ blogConfig.author.bio }}</p>
       </div>
       
       <div class="contact">
         <h3>联系方式</h3>
         <ul>
-          <li>邮箱：example@example.com</li>
-          <li>GitHub：github.com/example</li>
-          <li>微博：@技术博主</li>
+          <li v-if="blogConfig.author.contact.email">邮箱：{{ blogConfig.author.contact.email }}</li>
+          <li v-if="blogConfig.author.contact.github">GitHub：{{ blogConfig.author.contact.github }}</li>
+          <li v-if="blogConfig.author.contact.weibo">微博：{{ blogConfig.author.contact.weibo }}</li>
         </ul>
       </div>
       
       <div class="skills">
         <h3>技术栈</h3>
         <div class="skills-grid">
-          <span class="skill-tag">Vue.js</span>
-          <span class="skill-tag">React</span>
-          <span class="skill-tag">TypeScript</span>
-          <span class="skill-tag">JavaScript</span>
-          <span class="skill-tag">HTML/CSS</span>
-          <span class="skill-tag">Vite</span>
-          <span class="skill-tag">Webpack</span>
-          <span class="skill-tag">Pinia</span>
-          <span class="skill-tag">Vuex</span>
-          <span class="skill-tag">Axios</span>
+          <span v-for="skill in blogConfig.author.skills" :key="skill" class="skill-tag">
+            {{ skill }}
+          </span>
         </div>
       </div>
     </main>
@@ -51,7 +42,7 @@
 </template>
 
 <script setup lang="ts">
-// 可以在这里添加逻辑
+import { blogConfig } from '../config'
 </script>
 
 <style scoped>

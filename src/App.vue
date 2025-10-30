@@ -1,12 +1,16 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
 import { useBlogStore } from './stores/blog'
+import { blogConfig } from './config'
 
 const blogStore = useBlogStore()
 
 onMounted(() => {
   // 预加载文章数据
   blogStore.fetchArticles()
+  
+  // 设置页面标题
+  document.title = blogConfig.site.title
 })
 </script>
 
@@ -15,7 +19,7 @@ onMounted(() => {
     <!-- 导航栏 -->
     <header class="navbar">
       <div class="container">
-        <router-link to="/" class="logo">我的博客</router-link>
+        <router-link to="/" class="logo">{{ blogConfig.site.name }}</router-link>
         <nav class="nav">
           <router-link to="/" class="nav-item">首页</router-link>
           <router-link to="/about" class="nav-item">关于</router-link>
@@ -33,7 +37,7 @@ onMounted(() => {
     <!-- 页脚 -->
     <footer class="footer">
       <div class="container">
-        <p>&copy; {{ new Date().getFullYear() }} 我的技术博客. All rights reserved.</p>
+        <p>{{ blogConfig.copyright }}</p>
       </div>
     </footer>
   </div>
@@ -66,11 +70,14 @@ body {
 
 /* 导航栏样式 */
 .navbar {
-  background: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.8); /* 半透明背景 */
+  backdrop-filter: blur(15px); /* 添加背景模糊效果 */
+  border-radius: 16px; /* 减小圆角幅度 */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* 增强阴影效果 */
   position: sticky;
   top: 0;
   z-index: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4); /* 半透明边框 */
 }
 
 .navbar .container {

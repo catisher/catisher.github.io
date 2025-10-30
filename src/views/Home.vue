@@ -1,8 +1,8 @@
 <template>
   <div class="home">
     <header class="hero">
-      <h1>我的技术博客</h1>
-      <p>记录前端开发的点滴</p>
+      <h1>{{ blogConfig.site.title }}</h1>
+      <p>{{ blogConfig.site.subtitle }}</p>
     </header>
 
     <main class="main-content">
@@ -65,6 +65,7 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
 import { useBlogStore } from '../stores/blog'
+import { blogConfig } from '../config'
 
 const blogStore = useBlogStore()
 

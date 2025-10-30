@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router'
+// @ts-ignore
 import Home from '../views/Home.vue'
 // @ts-ignore
 import ArticleDetail from '../views/ArticleDetail.vue'
