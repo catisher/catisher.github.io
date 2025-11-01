@@ -7,9 +7,7 @@ import { blogConfig } from '../config'
 // 从配置中解构出透明度设置
 const { cardOpacity, cardOpacityHover, borderOpacity } = blogConfig.theme
 import {
-  Menu as MenuIcon,
   CollectionTag,
-  User as UserIcon,
   Setting as SettingIcon,
   HomeFilled,
   List,
@@ -82,11 +80,11 @@ function formatDate(dateString: string) {
       <el-menu class="category-menu">
         <el-menu-item
           v-for="category in categories"
-          :key="category.id || category"
-          :index="`/category/${category.id || category}`"
-          @click="category.id ? handleCategoryClick(category.id) : null"
+          :key="category"
+          :index="`/category/${category}`"
+          @click="handleCategoryClick(category)"
         >
-          {{ category.name || category }}{{ category.count ? ` (${category.count})` : '' }}
+          {{ category }}
         </el-menu-item>
       </el-menu>
     </el-card>
@@ -125,9 +123,24 @@ function formatDate(dateString: string) {
         </div>
       </template>
       <ul class="links-list">
-        <li v-for="link in blogConfig.links" :key="link.name">
-          <a :href="link.url" target="_blank" rel="noopener noreferrer">
-            {{ link.name }}
+        <li v-if="blogConfig.social.github">
+          <a :href="blogConfig.social.github" target="_blank" rel="noopener noreferrer">
+            GitHub
+          </a>
+        </li>
+        <li v-if="blogConfig.social.twitter">
+          <a :href="blogConfig.social.twitter" target="_blank" rel="noopener noreferrer">
+            Twitter
+          </a>
+        </li>
+        <li v-if="blogConfig.social.weibo">
+          <a :href="blogConfig.social.weibo" target="_blank" rel="noopener noreferrer">
+            微博
+          </a>
+        </li>
+        <li v-if="blogConfig.social.wechat">
+          <a :href="blogConfig.social.wechat" target="_blank" rel="noopener noreferrer">
+            微信
           </a>
         </li>
       </ul>
