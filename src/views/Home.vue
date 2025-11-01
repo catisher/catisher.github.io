@@ -34,30 +34,6 @@
           </router-link>
         </article>
       </div>
-
-      <aside class="sidebar">
-        <div class="categories">
-          <h3>文章分类</h3>
-          <ul>
-            <li v-for="category in blogStore.categories" :key="category">
-              <router-link :to="{ name: 'Category', params: { name: category } }">
-                {{ category }}
-              </router-link>
-            </li>
-          </ul>
-        </div>
-        
-        <div class="recent-articles">
-          <h3>最新文章</h3>
-          <ul>
-            <li v-for="article in blogStore.getRecentArticles" :key="article.id">
-              <router-link :to="{ name: 'ArticleDetail', params: { id: article.id } }">
-                {{ article.title }}
-              </router-link>
-            </li>
-          </ul>
-        </div>
-      </aside>
     </main>
   </div>
 </template>
@@ -66,6 +42,9 @@
 import { onMounted } from 'vue'
 import { useBlogStore } from '../stores/blog'
 import { blogConfig } from '../config'
+
+// 从配置中解构出透明度设置
+const { cardOpacity, cardOpacityHover, borderOpacity } = blogConfig.theme
 
 const blogStore = useBlogStore()
 
@@ -106,9 +85,6 @@ function formatDate(dateString: string) {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
-  display: grid;
-  grid-template-columns: 1fr 300px;
-  gap: 2rem;
 }
 
 .articles-container {
@@ -118,11 +94,17 @@ function formatDate(dateString: string) {
 }
 
 .article-card {
-  background: white;
+  background-color: rgba(255, 255, 255, v-bind(cardOpacity)); /* 使用配置中的透明度 */
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, v-bind(borderOpacity)); /* 使用配置中的边框透明度 */
   border-radius: 8px;
   padding: 1.5rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: all 0.3s ease;
+}
+
+.article-card:hover {
+  background-color: rgba(255, 255, 255, v-bind(cardOpacityHover)); /* 使用配置中的悬停透明度 */
 }
 
 .article-card:hover {

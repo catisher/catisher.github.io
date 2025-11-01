@@ -39,6 +39,10 @@ export const blogConfig = {
     secondaryColor: '#764ba2',
     backgroundColor: '#f5f7fa',
     textColor: '#333',
+    // 透明度配置
+    cardOpacity: 0.4,         // 卡片默认透明度
+    cardOpacityHover: 0.6,    // 卡片悬停透明度
+    borderOpacity: 0.05,      // 边框透明度
   },
   
   // 背景图配置
