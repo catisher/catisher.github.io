@@ -2,10 +2,10 @@
 export const blogConfig = {
   // 网站基础信息
   site: {
-    name: '我的技术博客',
-    title: '我的技术博客',
+    name: 'catisher',
+    title: 'catisher',
     subtitle: '记录前端开发的点滴',
-    description: '专注于前端开发，分享技术心得和项目经验',
+    description: '漫游星空的法师',
     baseUrl: 'http://localhost:5173', // 部署后的域名
   },
   

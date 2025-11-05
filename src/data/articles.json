@@ -6,7 +6,7 @@
     "excerpt": "---\r title: 'Pinia状态管理最佳实践'\r category: '前端'\r tags: ['Pinia', '状态管理', 'Vue']\r date: '2024-01-10'\r author: '李四'\r cover: ''\r ---\r \r Pinia状态管理最佳实践\r \r Pini...",
     "category": "默认",
     "tags": [],
-    "date": "2025-11-01",
+    "date": "2025-11-05",
     "author": "未知作者",
     "cover": ""
   },
@@ -17,7 +17,7 @@
     "excerpt": "---\r title: 'Vue 3 组合式API详解'\r category: '前端'\r tags: ['Vue3', '组合式API', 'JavaScript']\r date: '2024-01-15'\r author: '张三'\r cover: ''\r ---\r \r Vue 3 组合式API...",
     "category": "默认",
     "tags": [],
-    "date": "2025-11-01",
+    "date": "2025-11-05",
     "author": "未知作者",
     "cover": ""
   }

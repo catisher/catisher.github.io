@@ -1,10 +1,12 @@
 <template>
   <div class="about">
-    <header class="about-header">
-      <h1>关于我</h1>
-    </header>
-    
-    <main class="about-content">
+    <el-card class="about-card" shadow="hover">
+      <!-- 头部 -->
+      <div class="about-header">
+        <h1>关于我</h1>
+      </div>
+      
+      <!-- 个人资料 -->
       <div class="profile">
         <div class="avatar">
           <div class="avatar-placeholder">
@@ -15,34 +17,59 @@
         <p>{{ blogConfig.author.description }}</p>
       </div>
       
-      <div class="bio">
+      <el-divider />
+      
+      <!-- 个人简介 -->
+      <div class="section">
         <h3>个人简介</h3>
         <p>{{ blogConfig.author.bio }}</p>
       </div>
       
-      <div class="contact">
+      <el-divider />
+      
+      <!-- 联系方式 -->
+      <div class="section">
         <h3>联系方式</h3>
         <ul>
-          <li v-if="blogConfig.author.contact.email">邮箱：{{ blogConfig.author.contact.email }}</li>
-          <li v-if="blogConfig.author.contact.github">GitHub：{{ blogConfig.author.contact.github }}</li>
-          <li v-if="blogConfig.author.contact.weibo">微博：{{ blogConfig.author.contact.weibo }}</li>
+          <li v-if="blogConfig.author.contact.email">
+            <el-icon><Document /></el-icon>
+            邮箱：{{ blogConfig.author.contact.email }}
+          </li>
+          <li v-if="blogConfig.author.contact.github">
+            <el-icon><Link /></el-icon>
+            GitHub：{{ blogConfig.author.contact.github }}
+          </li>
+          <li v-if="blogConfig.author.contact.weibo">
+            <el-icon><Message /></el-icon>
+            微博：{{ blogConfig.author.contact.weibo }}
+          </li>
         </ul>
       </div>
       
-      <div class="skills">
+      <el-divider />
+      
+      <!-- 技术栈 -->
+      <div class="section">
         <h3>技术栈</h3>
         <div class="skills-grid">
-          <span v-for="skill in blogConfig.author.skills" :key="skill" class="skill-tag">
+          <el-tag 
+            v-for="skill in blogConfig.author.skills" 
+            :key="skill" 
+            class="skill-tag" 
+            size="medium"
+            effect="dark"
+          >
             {{ skill }}
-          </span>
+          </el-tag>
         </div>
       </div>
-    </main>
+    </el-card>
   </div>
 </template>
 
 <script setup lang="ts">
 import { blogConfig } from '../config'
+import { Document, Link, Message } from '@element-plus/icons-vue'
 </script>
 
 <style scoped>
@@ -51,22 +78,31 @@ import { blogConfig } from '../config'
   margin: 0 auto;
   padding: 2rem 1rem;
   min-height: 100vh;
-  background: white;
+}
+
+.about-card {
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
 .about-header {
   text-align: center;
-  margin-bottom: 2rem;
+  padding: 1rem 0;
 }
 
 .about-header h1 {
   font-size: 2.5rem;
   color: #333;
+  margin: 0;
 }
 
 .profile {
   text-align: center;
-  margin-bottom: 3rem;
+  padding: 1rem 0;
 }
 
 .avatar {
@@ -91,52 +127,44 @@ import { blogConfig } from '../config'
   font-size: 1.8rem;
   color: #333;
   margin-bottom: 0.5rem;
+  margin-top: 0;
 }
 
 .profile p {
   color: #666;
   font-size: 1.1rem;
+  margin: 0;
 }
 
-.bio,
-.contact,
-.skills {
-  margin-bottom: 2rem;
-  padding: 1.5rem;
-  background: #f9f9f9;
-  border-radius: 8px;
+.section {
+  padding: 1rem 0;
 }
 
-.bio h3,
-.contact h3,
-.skills h3 {
+.section h3 {
   font-size: 1.3rem;
   color: #333;
-  margin-bottom: 1rem;
-  border-bottom: 2px solid #667eea;
-  padding-bottom: 0.5rem;
+  margin: 0 0 1rem 0;
 }
 
-.bio p {
+.section p {
   line-height: 1.6;
   color: #666;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
 }
 
-.contact ul {
+.section ul {
   list-style: none;
   padding: 0;
+  margin-bottom: 0;
 }
 
-.contact li {
+.section li {
   line-height: 1.8;
   color: #666;
   padding: 0.5rem 0;
-  border-bottom: 1px solid #eee;
-}
-
-.contact li:last-child {
-  border-bottom: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .skills-grid {
@@ -146,17 +174,7 @@ import { blogConfig } from '../config'
 }
 
 .skill-tag {
-  background: #667eea;
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  transition: transform 0.3s;
-}
-
-.skill-tag:hover {
-  transform: translateY(-2px);
-  background: #764ba2;
+  margin-bottom: 0.5rem;
 }
 
 @media (max-width: 768px) {

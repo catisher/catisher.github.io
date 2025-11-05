@@ -1,27 +1,43 @@
 <template>
   <div class="article-detail">
-    <div v-if="loading" class="loading">加载中...</div>
-    <div v-else-if="error" class="error">{{ error }}</div>
+    <el-spin v-if="loading" class="loading-container" text="加载中..." />
+    <el-alert
+      v-else-if="error"
+      :title="error"
+      type="error"
+      show-icon
+      class="error-alert"
+    />
     <div v-else-if="article" class="article-content">
       <header class="article-header">
-        <h1>{{ article.title }}</h1>
+        <h1 class="article-title">{{ article.title }}</h1>
         <div class="article-meta">
-          <span class="category">{{ article.category }}</span>
-          <span class="date">{{ formatDate(article.date) }}</span>
-          <span class="author">{{ article.author }}</span>
+          <el-tag size="small" type="primary">{{ article.category }}</el-tag>
+          <span class="date">📅 {{ formatDate(article.date) }}</span>
+          <span class="author">👤 {{ article.author }}</span>
         </div>
         <div class="article-tags">
-          <span v-for="tag in article.tags" :key="tag" class="tag">{{ tag }}</span>
+          <el-tag
+            v-for="tag in article.tags"
+            :key="tag"
+            size="small"
+            class="tag"
+            effect="plain"
+          >
+            {{ tag }}
+          </el-tag>
         </div>
       </header>
       
       <div class="markdown-content" v-html="renderedContent"></div>
       
       <div class="article-actions">
-        <router-link to="/" class="back-home">返回首页</router-link>
+        <el-button type="primary" round>
+          <router-link to="/" class="back-home-link">返回首页</router-link>
+        </el-button>
       </div>
     </div>
-    <div v-else class="not-found">文章不存在</div>
+    <el-empty v-else description="文章不存在" class="empty-container" />
   </div>
 </template>
 
@@ -30,6 +46,7 @@ import { ref, computed, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { useBlogStore } from '../stores/blog'
 import MarkdownIt from 'markdown-it'
+// Element Plus 组件已经在 main.ts 中全局注册，不需要单独导入
 
 const route = useRoute()
 const blogStore = useBlogStore()
@@ -82,20 +99,26 @@ function formatDate(dateString: string) {
   margin: 0 auto;
   padding: 2rem 1rem;
   min-height: 100vh;
-  background: white;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.loading,
-.error,
-.not-found {
-  text-align: center;
-  padding: 3rem;
-  font-size: 1.2rem;
-  color: #666;
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
 }
 
-.error {
-  color: #e74c3c;
+.error-alert {
+  margin: 2rem 0;
+}
+
+.empty-container {
+  margin: 4rem 0;
 }
 
 .article-header {
@@ -104,40 +127,33 @@ function formatDate(dateString: string) {
   border-bottom: 1px solid #eee;
 }
 
-.article-header h1 {
+.article-title {
   font-size: 2.2rem;
   margin-bottom: 1rem;
   color: #333;
+  font-weight: 600;
 }
 
 .article-meta {
   display: flex;
-  gap: 1rem;
+  align-items: center;
+  gap: 1.5rem;
   margin-bottom: 1rem;
   font-size: 0.9rem;
   color: #666;
-}
-
-.category {
-  background: #667eea;
-  color: white;
-  padding: 0.2rem 0.8rem;
-  border-radius: 4px;
-  font-size: 0.8rem;
+  flex-wrap: wrap;
 }
 
 .article-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .tag {
-  background: #f0f0f0;
-  padding: 0.2rem 0.6rem;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  color: #666;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .markdown-content {
@@ -146,6 +162,7 @@ function formatDate(dateString: string) {
   margin-bottom: 2rem;
 }
 
+/* Element Plus 主题兼容的 Markdown 样式 */
 .markdown-content h1,
 .markdown-content h2,
 .markdown-content h3,
@@ -154,15 +171,20 @@ function formatDate(dateString: string) {
 .markdown-content h6 {
   margin-top: 2rem;
   margin-bottom: 1rem;
-  color: #2c3e50;
+  color: var(--el-text-color-primary, #2c3e50);
+  font-weight: 600;
 }
+
+.markdown-content h1 { font-size: 1.8rem; }
+.markdown-content h2 { font-size: 1.5rem; }
+.markdown-content h3 { font-size: 1.3rem; }
 
 .markdown-content p {
   margin-bottom: 1rem;
 }
 
 .markdown-content a {
-  color: #667eea;
+  color: var(--el-color-primary, #667eea);
   text-decoration: none;
 }
 
@@ -171,18 +193,20 @@ function formatDate(dateString: string) {
 }
 
 .markdown-content code {
-  background: #f5f5f5;
+  background: var(--el-bg-color-light, #f5f5f5);
   padding: 0.2rem 0.4rem;
   border-radius: 3px;
   font-family: 'Courier New', monospace;
+  font-size: 0.9em;
 }
 
 .markdown-content pre {
-  background: #f5f5f5;
+  background: var(--el-bg-color-light, #f5f5f5);
   padding: 1rem;
   border-radius: 8px;
   overflow-x: auto;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--el-border-color, #e0e0e0);
 }
 
 .markdown-content pre code {
@@ -191,10 +215,10 @@ function formatDate(dateString: string) {
 }
 
 .markdown-content blockquote {
-  border-left: 4px solid #667eea;
+  border-left: 4px solid var(--el-color-primary, #667eea);
   padding-left: 1rem;
   margin-left: 0;
-  color: #666;
+  color: var(--el-text-color-secondary, #666);
   font-style: italic;
 }
 
@@ -207,25 +231,37 @@ function formatDate(dateString: string) {
 .markdown-content img {
   max-width: 100%;
   border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .article-actions {
   text-align: center;
-  padding-top: 1rem;
-  border-top: 1px solid #eee;
+  padding-top: 2rem;
+  border-top: 1px solid var(--el-border-color, #eee);
+  margin-top: 2rem;
 }
 
-.back-home {
-  display: inline-block;
-  background: #667eea;
+.back-home-link {
   color: white;
-  padding: 0.8rem 1.5rem;
-  border-radius: 4px;
   text-decoration: none;
-  transition: background-color 0.3s;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
 }
 
-.back-home:hover {
-  background: #764ba2;
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .article-detail {
+    padding: 1rem;
+  }
+  
+  .article-title {
+    font-size: 1.8rem;
+  }
+  
+  .article-meta {
+    gap: 1rem;
+    font-size: 0.8rem;
+  }
 }
 </style>

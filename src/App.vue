@@ -23,7 +23,7 @@ onMounted(() => {
   <div class="app">
     <div class="common-layout">
       <el-container>
-        <el-header><NavBar /></el-header>
+        <el-header><NavBar/></el-header>
         <el-container>
           <!-- 主内容区域 -->
           <el-container>
@@ -126,6 +126,48 @@ body {
 .common-layout {
   width: 100%;
   min-height: 100vh;
+  padding: 1rem;
+}
+
+/* 调整各个模块之间的间距 */
+.el-header {
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+.el-main {
+  padding: 0;
+  margin-right: 1.5rem;
+}
+
+.el-footer {
+  padding: 0;
+  margin-top: 2rem;
+}
+
+/* 侧边栏间距调整 */
+.desktop-sidebar {
+  margin-left: 1.5rem;
+}
+
+/* 移动设备上的调整 */
+@media (max-width: 768px) {
+  .common-layout {
+    padding: 0.5rem;
+  }
+  
+  el-header {
+    margin-bottom: 1rem;
+  }
+  
+  el-main {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+  
+  el-footer {
+    margin-top: 1.5rem;
+  }
 }
 
 .app {
